@@ -5,10 +5,11 @@ module.exports = {
     extend: {},
     colors: {
       background: '#051b1f',
-      text: '#d7f4f9',
-      primary: '#1b9fb6',
+      text: '#ffffff',
+      primary: '#222222',
       secondary: '#09363e',
-      accent: '#188ba0'
+      accent: '#188ba0',
+      black: '#1b1b1b'
     },
   },
   plugins: [],
