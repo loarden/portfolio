@@ -17,7 +17,7 @@ function NextPage({ page }) {
         }}
         className='absolute z-50 bottom-4 w-full flex justify-center'>
         <a href={`#${page}`}>
-          <KeyboardArrowDownIcon sx={{ fontSize: '2em' }} />
+          <KeyboardArrowDownIcon sx={{ fontSize: '3em' }} />
         </a>
       </motion.div>
     </Animation>

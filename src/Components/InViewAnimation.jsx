@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
-function SectionHeader({text}) {
+function InViewAnimation({ children }) {
   const ref = useRef()
   const inView = useInView(ref)
 
@@ -15,21 +15,18 @@ function SectionHeader({text}) {
   }
 
   return (
-    <motion.h2
+    <motion.div
       ref={ref}
-      variants={variants}
       animate={inView ? 'visible' : 'hidden'}
       transition={{
+        duration: 0.4,
         ease: 'easeInOut',
-        duration: 1
       }}
-      className="text-4xl sm:text-5xl relative py-8 md:text-center font-light"
+      variants={variants}
     >
-      {text}
-    </motion.h2>
+      {children}
+    </motion.div>
   )
 }
 
-export default SectionHeader
-
-//before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-1 before:bg-text
+export default InViewAnimation

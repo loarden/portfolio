@@ -1,86 +1,37 @@
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
 import SectionHeader from "./SectionHeader"
-import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs, FaSass, FaBootstrap, FaGitAlt, FaGithub } from 'react-icons/fa6'
-import FirebaseIcon from "./FirebaseIcon";
-import MuiIcon from "./MuiIcon";
-import TailwindIcon from "./TailwindIcon";
+import { iconComponents } from "../Assets/datas";
+import InViewAnimation from "./InViewAnimation";
 
 function About() {
 
-  const ref = useRef()
-  const inView = useInView(ref)
-
-  const variants = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-    }
-  }
-
   return (
-    <section id="About" className="w-full h-fit bg-black">
-      <article className="md:py-24 py-16 gap-20 flex flex-col sm:flex-row max-w-7xl w-full p-4 mx-auto">
-        <div className="grow w-full">
+    <section id="About" className="w-full h-fit bg-primary">
+      <article className="py-14 gap-10 flex flex-col items-center max-w-7xl w-full mx-auto">
+        <div className="grow w-full max-w-sm sm:max-w-md md:max-w-xl px-4 text-center font-thin">
           <SectionHeader
             text='About me'
           />
-          <motion.p
-            ref={ref}
-            animate={inView ? 'visible' : 'hidden'}
-            transition={{
-              duration: 0.5,
-              ease: 'easeInOut',
-            }}
-            variants={variants}
-            className="text-sm tracking-wider">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quibusdam illo nobis quaerat ex accusantium laudantium. Nostrum, voluptate excepturi illo obcaecati maiores, impedit a nam, vel dolorem eveniet nulla cupiditate!</motion.p>
+          <InViewAnimation>
+            <p className="text-2xl sm:text-3xl md:text-4xl mb-2">Hi, my name is Biacsi Ors.</p>
+            <p className="text-lg sm:text-xl md:text-2xl">I am a <span className="font-bold">Frontend Developer</span></p>
+            <p className="mt-2 text-lg sm:text-xl md:text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab perferendis tenetur illum. Repellendus laboriosam adipisci recusandae nemo assumenda ab dicta tempore ipsam! Illo, impedit. Corporis quasi provident beatae consequuntur cumque.</p>
+          </InViewAnimation>
         </div>
-        <div className="grow w-full">
+        <div className="grow w-full px-4 text-center">
           <SectionHeader
             text='Skills'
           />
-          <motion.div
-            variants={variants}
-            className="grid grid-cols-3 text-6xl text-secondary items-center justify-items-center gap-5 transition-all">
-            <div className="hover:text-text transition-all">
-              <FaHtml5 />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaCss3 />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaJs />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaReact />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FirebaseIcon />
-            </div>
-            <div className="hover:text-text transition-all">
-              <MuiIcon />
-            </div>
-            <div className="hover:text-text transition-all">
-              <TailwindIcon />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaNodeJs />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaSass />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaBootstrap />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaGitAlt />
-            </div>
-            <div className="hover:text-text transition-all">
-              <FaGithub />
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 text-6xl text-secondary items-center justify-items-center gap-5 transition-all">
+            {iconComponents.map((comp, index) => {
+              return (
+                <InViewAnimation key={index}>
+                  <div className="hover:text-text transition-all">
+                    {comp.comp}
+                  </div>
+                </InViewAnimation>
+              )
+            })}
+          </div>
         </div>
       </article>
     </section>

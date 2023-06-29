@@ -47,16 +47,16 @@ function Header() {
   }, [windowWidth])
 
   return (
-    <header className='fixed mx-auto w-full z-50'>
-      <nav className="w-full h-14 max-w-7xl mx-auto relative flex flex-row justify-between items-center z-50">
-        <h2 className="text-text relative text-xl md:text-2xl font-bold -z-50 pl-2"><a href="#Home">Örs.</a></h2>
-        <div className='sm:flex items-center text-text hidden gap-11 pr-2'>
-          <ul className="flex gap-7 text-text md:text-base text-sm">
+    <nav className='fixed mx-auto w-full z-50 bg-primary bg-opacity-30'>
+      <div className="w-full h-14 mx-auto relative flex flex-row justify-between items-center z-50 px-2 sm:px-3 md:px-4">
+        <h2 className="text-text relative text-2xl md:text-3xl font-bold -z-50"><a href="#Home">Örs.</a></h2>
+        <div className='md:flex items-center text-text hidden gap-11'>
+          <ul className="flex gap-10 text-text text-xl">
             {navItems.map((item, index) => {
               return <a key={index} href={`#${item.title}`}><li className='cursor-pointer py-1 relative before:transition-all before:duration-300 hover:before:absolute before:w-0 hover:before:w-full hover:before:bottom-0 hover:before:h-[2px] hover:before:bg-text'>{item.title}</li></a>
             })}
           </ul>
-          <div className='flex gap-5'>
+        {/*   <div className='flex gap-5'>
             <div className='cursor-pointer'>
               <a href="https://github.com/loarden"><GitHubIcon sx={{ fontSize: '2em' }} /></a>
             </div>
@@ -66,10 +66,10 @@ function Header() {
             <div className='cursor-pointer'>
               <EmailIcon sx={{ fontSize: '2em' }} />
             </div>
-          </div>
+          </div> */}
         </div>
         <div onClick={() => setIsOpen(!isOpen)}
-          className='block sm:hidden pr-2'>
+          className='block md:hidden pr-2'>
           {
             isOpen ?
               <ClearIcon sx={{ fontSize: '2em' }} /> :
@@ -78,9 +78,9 @@ function Header() {
         </div>
         <Animation>
           {isOpen && <motion.div
-            className='absolute top-0 right-0 backdrop-blur-lg flex flex-col justify-between pt-24 w-full text-xl items-end h-screen -z-10 overflow-auto'
+            className='absolute top-0 right-0 backdrop-blur-lg flex flex-col justify-between pt-24 w-full text-2xl items-end h-screen -z-10 overflow-auto'
             initial={{
-              x: '100vh',
+              x: '100%',
             }}
             animate={{
               x: '0',
@@ -90,15 +90,15 @@ function Header() {
               }
             }}
             exit={{
-              x: '100vh',
+              x: '100%',
             }}
           >
             <ul className='flex flex-col items-end gap-20 pr-4'>
               {navItems.map((item, index) => {
-                return <a onClick={() => setIsOpen(!isOpen)} href={`#${item.title}`}><motion.li key={index} whileHover={{ x: '-20px' }}>{item.title}</motion.li></a>
+                return <a key={index} onClick={() => setIsOpen(!isOpen)} href={`#${item.title}`}><motion.li key={index} whileHover={{ x: '-20px' }}>{item.title}</motion.li></a>
               })}
             </ul>
-            <div className='flex w-full justify-around pb-10 text-text'>
+            {/* <div className='flex w-full justify-around pb-10 text-text'>
               <div className='cursor-pointer'>
                 <a href="https://github.com/loarden"><GitHubIcon sx={{ fontSize: '2em' }} /></a>
               </div>
@@ -108,11 +108,11 @@ function Header() {
               <Link href='biacsi.ors@gmail.com'><div className='cursor-pointer'>
                 <EmailIcon sx={{ fontSize: '2em' }} />
               </div></Link>
-            </div>
+            </div> */}
           </motion.div>}
         </Animation>
-      </nav>
-    </header>
+      </div>
+    </nav>
   )
 }
 

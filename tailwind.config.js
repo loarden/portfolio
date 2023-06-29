@@ -6,10 +6,12 @@ module.exports = {
     colors: {
       background: '#051b1f',
       text: '#ffffff',
-      primary: '#000000',
+      primary: '#111111',
       secondary: '#616366',
       accent: '#188ba0',
-      black: '#1b1b1b'
+      black: '#1b1b1b',
+      white: '#ffffff',
+      blue: '#0e76a8'
     },
   },
   plugins: [],

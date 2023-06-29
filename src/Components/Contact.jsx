@@ -1,7 +1,11 @@
+import SectionHeader from "./SectionHeader"
+
 function Contact() {
   return (
     <section id="Contact" className="w-full h-screen bg-black">
-      <h2>Contact</h2>
+      <SectionHeader 
+        text='Contact me!'
+      />
     </section>
   )
 }
