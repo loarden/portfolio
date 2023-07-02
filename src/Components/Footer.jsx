@@ -1,9 +1,9 @@
 function Footer() {
   return (
-    <footer className="absolute w-full bottom-20 left-0 flex justify-center sm:text-sm text-xs">
-      <p>© 2023 Biacsi Ors - All rights reserved</p>
+    <footer className="w-full bg-primary h-20 flex justify-center items-center sm:text-md text-sm">
+      <p>© 2023 Biacsi Ors</p>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

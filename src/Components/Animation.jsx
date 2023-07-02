@@ -1,15 +1,11 @@
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence } from "framer-motion";
 
 function Animation({ children }) {
   return (
-    <AnimatePresence
-        initial={false}
-        wait={true}
-        onExitComplete={() => null}
-      >
-        {children}
+    <AnimatePresence initial={false} wait={true} onExitComplete={() => null}>
+      {children}
     </AnimatePresence>
-  )
+  );
 }
 
-export default Animation
+export default Animation;
