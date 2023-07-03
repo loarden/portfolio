@@ -17,7 +17,7 @@ function Hero() {
           <h1 className="tracking-widest text-4xl sm:text-5xl md:text-6xl font-thin">
             Biacsi Örs
           </h1>
-          <p className="text-4xl sm:text-6xl md:text-7xl mt-3 sm:mt-4 md:mt-5 font-semibold">
+          <p className="text-4xl sm:text-6xl md:text-7xl mt-3 sm:mt-4 md:mt-5">
             Frontend Developer
           </p>
           <a href="#Portfolio">

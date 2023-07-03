@@ -11,18 +11,22 @@ function Contact() {
     >
       <SectionHeader text="Contact me!" />
       <InViewAnimation>
-        <div className="text-lg sm:text-xl max-w-xl px-4"v>
-
-        <p >
-          If you'd like to send me a message, I can be reached through various
-          ways! If you prefer email, simply fill out the form below or send me a
-          message directly at{" "}
-          <span className="text-black bg-text rounded-md">
-            biacsi.ors@gmail.com
-          </span>
-          .
-        </p>
-        <p className="mt-3 inline-block">Or send me a message at <span><SiLinkedin /></span></p>
+        <div className="text-xl sm:text-2xl font-thin max-w-xl px-4" v>
+          <p>
+            If you'd like to send me a message, I can be reached through various
+            ways! If you prefer email, simply fill out the form below or send me
+            a message directly at{" "}
+            <span className="font-semibold">biacsi.ors@gmail.com</span>.
+          </p>
+          <p className="mt-3 inline-block">
+            Or send me a message to my{" "}
+            <a
+              className="underline"
+              href="https://www.linkedin.com/in/%C3%B6rs-biacsi-345b3b239/"
+            >
+              LinkedIn
+            </a>
+          </p>
         </div>
       </InViewAnimation>
       <div className="pt-8 w-full max-w-xl">
