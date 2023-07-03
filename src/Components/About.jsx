@@ -16,10 +16,7 @@ function About() {
               I am a <span className="font-bold">Frontend Developer</span>
             </p>
             <p className="mt-2 text-lg sm:text-xl md:text-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              perferendis tenetur illum. Repellendus laboriosam adipisci
-              recusandae nemo assumenda ab dicta tempore ipsam! Illo, impedit.
-              Corporis quasi provident beatae consequuntur cumque.
+              I love to create visually appealing and user-friendly web applications. Currently my main framework is <span className="font-semibold">React</span> but I'm always open to learn new technologies and increase my skills. Let's create exceptional experiences together!
             </p>
           </InViewAnimation>
         </div>
