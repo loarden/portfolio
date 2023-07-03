@@ -1,6 +1,7 @@
 import AnimatedBg from "./AnimatedBg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NextPage from "./NextPage";
+import Button from "./Button";
 
 function Hero() {
   const { scrollY } = useScroll();
@@ -20,14 +21,12 @@ function Hero() {
           <p className="text-4xl sm:text-6xl md:text-7xl mt-3 sm:mt-4 md:mt-5">
             Frontend Developer
           </p>
-          <a href="#Portfolio">
-            <motion.button
-              whileHover={{ y: -5 }}
-              className="px-5 md:px-7 py-3 md:py-5 text-md md-text-2xl border-[1px] mt-3 sm:mt-4 md:mt-5"
-            >
-              Explore my projects
-            </motion.button>
-          </a>
+          <div className="flex justify-center mt-3 sm:mt-4 md:mt-5">
+          <Button 
+            text='Explore my projects'
+            url='#Portfolio'
+          />
+          </div>
         </motion.article>
         <NextPage page="About" />
       </header>

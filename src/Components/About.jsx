@@ -4,8 +4,8 @@ import InViewAnimation from "./InViewAnimation";
 
 function About() {
   return (
-    <section id="About" className="w-full h-fit bg-primary">
-      <article className="py-14 gap-10 flex flex-col items-center max-w-7xl w-full mx-auto">
+    <section id="About" className="w-full h-fit bg-primary border-b-[1px] border-black px-6 py-28">
+      <article className="gap-10 flex flex-col items-center max-w-7xl w-full mx-auto">
         <div className="grow w-full max-w-sm sm:max-w-md md:max-w-xl px-4 text-center font-thin">
           <SectionHeader text="About me" />
           <InViewAnimation>
@@ -20,7 +20,7 @@ function About() {
             </p>
           </InViewAnimation>
         </div>
-        <div className="grow w-full px-4 text-center">
+        <div className="grow w-full pt-16 text-center">
           <SectionHeader text="Skills" />
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 text-6xl text-secondary items-center justify-items-center gap-5 transition-all">
             {iconComponents.map((comp, index) => {

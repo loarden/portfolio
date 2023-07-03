@@ -23,7 +23,7 @@ function SectionHeader({ text }) {
         ease: "easeInOut",
         duration: 1,
       }}
-      className="text-4xl sm:text-5xl relative py-8 text-center font-thin"
+      className="text-4xl sm:text-5xl relative pb-8 text-center font-thin"
     >
       {text}
     </motion.h2>

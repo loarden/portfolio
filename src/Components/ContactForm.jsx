@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import InViewAnimation from "./InViewAnimation";
 import { motion } from "framer-motion";
 import { Input, Textarea } from "@material-tailwind/react";
+import Button from "./Button";
 
 const inputStyle = {
   inputStyle:
     "bg-primary border-text text-text text-lg md:text-xl resize-none w-full",
   buttonStyle:
-    "px-5 sm:px-6 md:px-7 py-2 md:py-3 sm:text-lg md_text-xl border-[1px] border-text",
+    "px-8 py-4 rounded-3xl sm:text-lg md:text-xl border-[2px] border-text",
   divStyle: "w-full",
 };
 function ContactForm() {
@@ -22,7 +23,7 @@ function ContactForm() {
   };
 
   return (
-    <form className="flex flex-col items-end sm:items-center gap-4 w-full px-4">
+    <form className="flex flex-col items-end sm:items-center gap-4 w-full">
       <InViewAnimation className={inputStyle.divStyle}>
         <Input
           onChange={changeHandler}

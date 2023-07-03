@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 
 function Animation({ children }) {
   return (
-    <AnimatePresence initial={false} wait={true} onExitComplete={() => null}>
+    <AnimatePresence wait={true} onExitComplete={() => null}>
       {children}
     </AnimatePresence>
   );

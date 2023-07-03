@@ -7,11 +7,11 @@ function Contact() {
   return (
     <section
       id="Contact"
-      className="w-full h-screen flex flex-col justify-center items-center bg-primary"
+      className="w-full h-fit flex flex-col justify-center items-center px-6 py-28 bg-primary"
     >
-      <SectionHeader text="Contact me!" />
+      <SectionHeader text="Get in touch!" />
       <InViewAnimation>
-        <div className="text-xl sm:text-2xl text-center font-thin max-w-xl px-4" v>
+        <div className="text-xl sm:text-2xl text-center font-thin max-w-xl" v>
           <p>
             If you'd like to send me a message, I can be reached through various
             ways! If you prefer email, simply fill out the form below or send me

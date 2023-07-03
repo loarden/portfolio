@@ -2,6 +2,8 @@ import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs, FaBootstrap, FaGitAlt, FaGith
 import { SiGmail } from "react-icons/si"
 import { SiTailwindcss, SiFirebase, SiMui } from 'react-icons/si'
 import delishDelivery from '../img/delish-delivery.png'
+import todoApp from '../img/todoapp.png'
+import weatherApp from '../img/weather-app.png'
 
 export const iconComponents = [
   {
@@ -54,14 +56,14 @@ export const iconComponents = [
   },
 ]
 
-export const projects = {
-  delivery: {
+export const projects = [
+  {
     title: 'DelishDelivery',
     img: delishDelivery,
     url: 'https://delishdelivery-e1cc9.web.app/',
     code: 'https://github.com/loarden/DelishDelivery',
     desc: 'Food delivery application with React, Firebase and Context API',
-    stack: [
+    stacks: [
       {
         title: 'React'
       },
@@ -75,8 +77,44 @@ export const projects = {
         title: 'Context API'
       }
     ]
+  },
+  {
+    title: 'Todo Application',
+    img: todoApp,
+    url: 'https://loarden.github.io/my-todo-app/',
+    code: 'https://github.com/loarden/my-todo-app',
+    desc: 'Responsive to-do application with localstorage',
+    stacks: [
+      {
+        title: 'React'
+      },
+      {
+        title: 'Vite'
+      },
+      {
+        title: 'Material Tailwind'
+      },
+    ]
+  },
+  {
+    title: 'Weather Application',
+    img: weatherApp,
+    url: 'https://loarden.github.io/weather-app/',
+    code: 'https://github.com/loarden/weather-app',
+    desc: 'Weather Application with 12 hours weather forecast',
+    stacks: [
+      {
+        title: 'React'
+      },
+      {
+        title: 'OpenWeather API'
+      },
+      {
+        title: 'Tailwind'
+      },
+    ]
   }
-}
+]
 
 export const navItems = [
   {
