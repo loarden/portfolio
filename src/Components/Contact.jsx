@@ -1,7 +1,6 @@
 import ContactForm from "./ContactForm";
 import InViewAnimation from "./InViewAnimation";
 import SectionHeader from "./SectionHeader";
-import { SiLinkedin } from "react-icons/si";
 
 function Contact() {
   return (

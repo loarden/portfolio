@@ -1,16 +1,10 @@
-import { FaEye, FaGift, FaGithub } from "react-icons/fa6";
+import { FaEye, FaGithub } from "react-icons/fa6";
 import InViewAnimation from "./InViewAnimation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExitToApp } from "@mui/icons-material";
-import Animation from "./Animation";
 
 function ProjectDetails({ img, title, url, code, desc, stacks }) {
   const [isShow, setIsShow] = useState(false);
-
-  useEffect(() => {
-    console.log(stacks);
-  }, []);
 
   return (
     <>

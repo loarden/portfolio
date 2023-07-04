@@ -59,7 +59,7 @@ function Header() {
         <Animation>
           {isOpen && (
             <motion.div
-              className="absolute top-0 right-0 backdrop-blur-lg bg-primary bg-opacity-40 flex flex-col justify-between pt-24 w-full text-2xl items-end h-screen -z-10 overflow-auto"
+              className="absolute top-0 right-0 backdrop-blur-lg bg-primary bg-opacity-40 flex flex-col justify-between py-36 w-full text-2xl items-end h-screen -z-10 overflow-auto"
               initial={{
                 x: "100%",
               }}
@@ -74,7 +74,7 @@ function Header() {
                 x: "100%",
               }}
             >
-              <ul className="flex flex-col items-end gap-20 pr-4">
+              <ul className="flex flex-col items-center w-full h-full justify-between">
                 {navItems.map((item, index) => {
                   return (
                     <a

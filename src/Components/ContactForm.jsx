@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import InViewAnimation from "./InViewAnimation";
 import { motion } from "framer-motion";
 import { Input, Textarea } from "@material-tailwind/react";
-import emailjs from 'emailjs-com'
+import emailjs from "emailjs-com";
 
 const inputStyle = {
   inputStyle:
@@ -12,9 +12,12 @@ const inputStyle = {
   divStyle: "w-full",
 };
 function ContactForm() {
+  const formRef = useRef();
 
-  const formRef = useRef()
-
+  const [isSent, setIsSent] = useState({
+    sent: false,
+    error: false
+  })
   const [email, setEmail] = useState({
     name: "",
     email: "",
@@ -27,19 +30,38 @@ function ContactForm() {
   };
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    emailjs.sendForm('service_tmzno6i', 'template_pdpe4xo', formRef.current, 'bgKCC9p0J_Ht-PZQo')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "gmail",
+        "template_pdpe4xo",
+        formRef.current,
+        "bgKCC9p0J_Ht-PZQo"
+      )
+      .then(
+        (result) => {
+          setIsSent((prev) => ({...prev, sent: true}))
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
+          setIsSent((prev) => ({...prev, error: true}))
           console.log(error.text);
-      });
-      e.target.reset()
-  }
+        }
+      );
+    e.target.reset();
+  };
+
+  useEffect(() => {
+    console.log(isSent)
+  },[isSent])
 
   return (
-    <form onSubmit={sendEmail} ref={formRef} className="flex flex-col items-end sm:items-center gap-4 w-full">
+    <form
+      onSubmit={sendEmail}
+      ref={formRef}
+      className="flex flex-col items-end sm:items-center gap-4 w-full"
+    >
       <InViewAnimation className={inputStyle.divStyle}>
         <Input
           onChange={changeHandler}
@@ -82,6 +104,7 @@ function ContactForm() {
       </InViewAnimation>
       <InViewAnimation>
         <motion.button
+          disabled={isSent.sent ? true : false}
           whileHover={{ y: -5 }}
           className={inputStyle.buttonStyle}
         >
