@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import InViewAnimation from "./InViewAnimation";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Input, Textarea } from "@material-tailwind/react";
 import emailjs from "emailjs-com";
+import { duration } from "@mui/material";
+import { ExitToApp } from "@mui/icons-material";
 
 const inputStyle = {
   inputStyle:
@@ -11,13 +13,26 @@ const inputStyle = {
     "px-8 py-4 rounded-3xl sm:text-lg md:text-xl border-[2px] border-text",
   divStyle: "w-full",
 };
+
+const animate = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 function ContactForm() {
   const formRef = useRef();
 
   const [isSent, setIsSent] = useState({
     sent: false,
-    error: false
-  })
+    error: false,
+  });
   const [email, setEmail] = useState({
     name: "",
     email: "",
@@ -41,11 +56,17 @@ function ContactForm() {
       )
       .then(
         (result) => {
-          setIsSent((prev) => ({...prev, sent: true}))
+          setIsSent((prev) => ({ ...prev, sent: true }));
+          setTimeout(() => {
+            setIsSent((prev) => ({ ...prev, sent: false }));
+          }, 1500);
           console.log(result.text);
         },
         (error) => {
-          setIsSent((prev) => ({...prev, error: true}))
+          setIsSent((prev) => ({ ...prev, error: true }));
+          setTimeout(() => {
+            setIsSent((prev) => ({ ...prev, error: false }));
+          }, 1500);
           console.log(error.text);
         }
       );
@@ -53,14 +74,14 @@ function ContactForm() {
   };
 
   useEffect(() => {
-    console.log(isSent)
-  },[isSent])
+    console.log(isSent);
+  }, [isSent]);
 
   return (
     <form
       onSubmit={sendEmail}
       ref={formRef}
-      className="flex flex-col items-end sm:items-center gap-4 w-full"
+      className=" relative flex flex-col items-end sm:items-center gap-4 w-full"
     >
       <InViewAnimation className={inputStyle.divStyle}>
         <Input
@@ -111,6 +132,32 @@ function ContactForm() {
           Send
         </motion.button>
       </InViewAnimation>
+      <AnimatePresence>
+        {isSent.sent ? (
+          <motion.p
+            initial={animate.hidden}
+            animate={animate.visible}
+            exit={animate.hidden}
+            className="absolute -bottom-10"
+          >
+            Email sent
+          </motion.p>
+        ) : (
+          ""
+        )}
+        {isSent.error ? (
+          <p
+            initial={animate.hidden}
+            animate={animate.visible}
+            exit={animate.hidden}
+            className="absolute -bottom-10"
+          >
+            Something went wrong
+          </p>
+        ) : (
+          ""
+        )}
+      </AnimatePresence>
     </form>
   );
 }
