@@ -1,16 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import InViewAnimation from "./InViewAnimation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Input, Textarea } from "@material-tailwind/react";
 import emailjs from "emailjs-com";
-
-const inputStyle = {
-  inputStyle:
-    "bg-primary border-text text-text text-lg md:text-xl resize-none w-full",
-  buttonStyle:
-    "px-8 py-4 rounded-3xl sm:text-lg md:text-xl border-[2px] border-text",
-  divStyle: "w-full",
-};
+import { formStyle } from "../Assets/datas";
 
 const animate = {
   hidden: {
@@ -77,41 +70,41 @@ function ContactForm() {
       ref={formRef}
       className=" relative flex flex-col items-end sm:items-center gap-4 w-full"
     >
-      <InViewAnimation className={inputStyle.divStyle}>
+      <InViewAnimation className={formStyle.divStyle}>
         <Input
           onChange={changeHandler}
           name="name"
-          className={inputStyle.inputStyle}
+          className={formStyle.inputStyle}
           required
           variant="standard"
           label="Your Name"
         />
       </InViewAnimation>
-      <InViewAnimation className={inputStyle.divStyle}>
+      <InViewAnimation className={formStyle.divStyle}>
         <Input
           onChange={changeHandler}
           name="email"
-          className={inputStyle.inputStyle}
+          className={formStyle.inputStyle}
           required
           variant="standard"
           label="Email"
         />
       </InViewAnimation>
-      <InViewAnimation className={inputStyle.divStyle}>
+      <InViewAnimation className={formStyle.divStyle}>
         <Input
           onChange={changeHandler}
           name="subject"
-          className={inputStyle.inputStyle}
+          className={formStyle.inputStyle}
           required
           variant="standard"
           label="Subject"
         />
       </InViewAnimation>
-      <InViewAnimation className={inputStyle.divStyle}>
+      <InViewAnimation className={formStyle.divStyle}>
         <Textarea
           onChange={changeHandler}
           name="body"
-          className={inputStyle.inputStyle}
+          className={formStyle.inputStyle}
           required
           variant="standard"
           label="Message"
@@ -121,7 +114,7 @@ function ContactForm() {
         <motion.button
           disabled={isSent.sent ? true : false}
           whileHover={{ y: -5 }}
-          className={inputStyle.buttonStyle}
+          className={formStyle.buttonStyle}
         >
           Send
         </motion.button>
