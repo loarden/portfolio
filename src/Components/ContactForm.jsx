@@ -3,8 +3,6 @@ import InViewAnimation from "./InViewAnimation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Input, Textarea } from "@material-tailwind/react";
 import emailjs from "emailjs-com";
-import { duration } from "@mui/material";
-import { ExitToApp } from "@mui/icons-material";
 
 const inputStyle = {
   inputStyle:
@@ -72,10 +70,6 @@ function ContactForm() {
       );
     e.target.reset();
   };
-
-  useEffect(() => {
-    console.log(isSent);
-  }, [isSent]);
 
   return (
     <form

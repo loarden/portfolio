@@ -20,10 +20,10 @@ function About() {
             </p>
             <p className="mt-2 text-xl md:text-2xl">
               I love to create visually appealing and user-friendly web
-              applications. Currently my main framework is{" "}
-              <span className="font-semibold">React</span> but I'm always open
+              applications. I've vast knowlege of {" "}
+              <span className="font-semibold">ReactJS</span> and but I'm always open
               to learn new technologies and increase my skills. Let's create
-              exceptional experiences together!
+              your next application together!
             </p>
           </InViewAnimation>
         </div>
