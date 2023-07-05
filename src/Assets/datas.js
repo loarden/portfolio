@@ -151,3 +151,11 @@ export const sidebarIcons = [
     url: 'mailto:biacsi.ors@gmail.com'
   }
 ]
+
+export const formStyle = {
+  inputStyle:
+    "bg-primary border-text text-text text-lg md:text-xl resize-none w-full",
+  buttonStyle:
+    "px-8 py-4 rounded-3xl sm:text-lg md:text-xl border-[2px] border-text",
+  divStyle: "w-full",
+};
