@@ -15,17 +15,26 @@ function Hero() {
           style={{ y: y1 }}
           className="relative z-50 md:p-0 p-2 text-center"
         >
-          <h1 className="tracking-widest text-4xl sm:text-5xl md:text-6xl font-thin">
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, delay: 0.3 },
+            }}
+            className="tracking-widest text-4xl sm:text-5xl md:text-6xl font-thin"
+          >
             Biacsi Örs
-          </h1>
-          <p className="text-4xl font-thin sm:text-6xl md:text-7xl mt-3 sm:mt-4 md:mt-5">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}
+            className="text-4xl font-thin sm:text-6xl md:text-7xl mt-3 sm:mt-4 md:mt-5"
+          >
             Frontend Developer
-          </p>
+          </motion.p>
           <div className="flex justify-center mt-3 sm:mt-4 md:mt-5">
-          <Button 
-            text='Explore my projects'
-            url='#Portfolio'
-          />
+            <Button text="Explore my projects" url="#Portfolio" />
           </div>
         </motion.article>
         <NextPage page="About" />
