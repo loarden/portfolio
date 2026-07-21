@@ -29,6 +29,43 @@ export type SocialLink = {
   href: string;
 };
 
+export type NavSection = {
+  index: string;
+  label: string;
+  href: string;
+};
+
+export type SkillItem = {
+  name: string;
+  icon:
+    | "typescript"
+    | "react"
+    | "nextjs"
+    | "nodejs"
+    | "express"
+    | "php"
+    | "postgresql"
+    | "mongodb"
+    | "docker"
+    | "mcp"
+    | "cursor"
+    | "claude";
+};
+
+export type SkillCategory = {
+  title: string;
+  skills: SkillItem[];
+};
+
+export const navSections = [
+  { index: "00", label: "Home", href: "#home" },
+  { index: "01", label: "Expertise", href: "#about" },
+  { index: "02", label: "Stack", href: "#skills" },
+  { index: "03", label: "Work", href: "#work" },
+  { index: "04", label: "Experience", href: "#experience" },
+  { index: "05", label: "Contact", href: "#contact" },
+] satisfies NavSection[];
+
 export const hero = {
   status: "Available for full-time opportunities",
   title: ["Full-Stack", "Engineer"] as const,
@@ -66,8 +103,46 @@ export const expertiseSection = {
   ] satisfies ExpertiseItem[],
 };
 
+export const skillsSection = {
+  label: "02 / Stack",
+  categories: [
+    {
+      title: "Frontend",
+      skills: [
+        { name: "TypeScript", icon: "typescript" },
+        { name: "React", icon: "react" },
+        { name: "Next.js", icon: "nextjs" },
+      ],
+    },
+    {
+      title: "Backend",
+      skills: [
+        { name: "Node.js", icon: "nodejs" },
+        { name: "Express.js", icon: "express" },
+        { name: "PHP", icon: "php" },
+      ],
+    },
+    {
+      title: "Databases",
+      skills: [
+        { name: "PostgreSQL", icon: "postgresql" },
+        { name: "MongoDB", icon: "mongodb" },
+      ],
+    },
+    {
+      title: "Tools",
+      skills: [
+        { name: "Docker", icon: "docker" },
+        { name: "MCP", icon: "mcp" },
+        { name: "Cursor", icon: "cursor" },
+        { name: "Claude Code", icon: "claude" },
+      ],
+    },
+  ] satisfies SkillCategory[],
+};
+
 export const workSection = {
-  label: "02 / Selected Work",
+  label: "03 / Selected Work",
   projects: [
     {
       index: "01.",
@@ -96,7 +171,7 @@ export const workSection = {
 };
 
 export const experienceSection = {
-  label: "03 / Experience",
+  label: "04 / Experience",
   items: [
     {
       role: "Senior Engineer",
@@ -118,7 +193,7 @@ export const experienceSection = {
 };
 
 export const contactSection = {
-  label: "04 / Get in Touch",
+  label: "05 / Get in Touch",
   prompt: "Ready to build something exceptional?",
   email: "hello@orsbiacsi.dev",
   socialLinks: [

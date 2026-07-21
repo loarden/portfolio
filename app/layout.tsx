@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SnowBackground from "./components/SnowBackground";
+import LenisProvider from "./components/LenisProvider";
 
 const anton = Anton({
   weight: "400",
@@ -41,7 +42,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <SnowBackground />
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );
