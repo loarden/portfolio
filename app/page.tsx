@@ -20,7 +20,7 @@ const projects = [
   },
   {
     index: "03.",
-    title: "Neural Copilot",
+    title: "Neura Copilot",
     href: "/projects/neural-copilot",
     tags: ["Python", "OpenAI API", "TypeScript"],
     delay: "200ms",
