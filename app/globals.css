@@ -75,6 +75,30 @@
 }
 
 @layer components {
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 70;
+    width: 100%;
+    height: 6px;
+    background: rgb(255 255 255 / 0.06);
+    pointer-events: none;
+  }
+
+  .scroll-progress-bar {
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary-container),
+      var(--color-primary)
+    );
+    will-change: transform;
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(30px);

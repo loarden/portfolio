@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactLenis } from "lenis/react";
+import ScrollProgress from "./ScrollProgress";
 import ScrollReveal from "./ScrollReveal";
 
 type LenisProviderProps = {
@@ -24,6 +25,7 @@ export default function LenisProvider({ children }: LenisProviderProps) {
           wheelMultiplier: 1,
         }}
       />
+      <ScrollProgress />
       {children}
       <ScrollReveal />
     </>
