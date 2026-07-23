@@ -52,16 +52,29 @@ export const navSections = [
   { index: "06", label: "Contact", href: "/#contact" },
 ] satisfies NavSection[];
 
+export type HeroMetric = {
+  value: string;
+  label: string;
+};
+
 export const hero = {
   status: "Available for full-time opportunities",
   title: ["Full-Stack", "Engineer"] as const,
   description:
-    "Building robust, scalable applications across the stack. Focused on performance, precision, and high-impact digital experiences.",
+    "Building fast, scalable web applications with clean code and modern technologies.",
+  metrics: [
+    { value: "3+", label: "Years of Experience" },
+    { value: "7+", label: "Completed Projects" },
+    { value: "10+", label: "Technologies" },
+  ] satisfies HeroMetric[],
 };
 
 export const aboutSection = {
   label: "00 / About Me",
-  bio: "I'm a Full-Stack Software Engineer with a passion for building scalable business systems and AI-powered applications. I bridge the gap between complex engineering requirements and intuitive user experiences.",
+  welcome: "Welcome",
+  title: "Hi, I'm Örs.",
+  description:
+    "I'm a Full-Stack Software Engineer who enjoys turning complex problems into reliable, scalable products. I work across the stack — from polished interfaces to robust APIs and data layers — with a focus on clean code, performance, and maintainable architecture. Whether it's a business platform, an e-commerce experience, or an AI-powered workflow, I care about building software that feels great to use and holds up in production.",
 };
 
 export const expertiseSection = {
@@ -105,18 +118,17 @@ export const skillsSection = {
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
       ],
     },
     {
       icon: "database",
       title: "Backend",
-      skills: ["Node.js", "Python", "PostgreSQL", "GraphQL", "AWS"],
+      skills: ["Node.js", "PHP", "PostgreSQL", "GraphQL", "RESTful APIs", "MongoDB"],
     },
     {
       icon: "construction",
       title: "Tools",
-      skills: ["Git", "Docker", "CI/CD", "Figma", "JetBrains IDEs"],
+      skills: ["Git", "Docker", "CI/CD", "Cursor", "OpenAI", "Anthropic"],
     },
   ] satisfies SkillCategory[],
 };
@@ -126,27 +138,35 @@ export const workSection = {
   projects: [
     {
       index: "01.",
-      title: "Epikcart",
-      href: "/projects/epikcart",
-      image: "/projects/epikcart/hero.jpg",
-      tags: ["React", "Redux", "Tailwind CSS"],
+      title: "SCOPE CMS",
+      href: "/projects/scope",
+      image: "/projects/scope/hero.png",
+      tags: ["React", "Next.js", "Redux", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "CI/CD"],
       borderClass: "border-t",
     },
     {
       index: "02.",
-      title: "Enterprise CRM",
-      href: "/projects/enterprise-crm",
-      image: "/projects/enterprise-crm.svg",
-      tags: ["Next.js", "GraphQL", "AWS"],
-      delay: "100ms",
+      title: "FRIEZE Portal",
+      href: "/projects/frieze",
+      image: "/projects/Frieze/hero.png",
+      tags: ["TypeScript", "Next.js", "Redux", "Node.js", "Express", "MongoDB"],
       borderClass: "border-t",
     },
     {
       index: "03.",
-      title: "Neural Copilot",
-      href: "/projects/neural-copilot",
-      image: "/projects/neural-copilot.svg",
-      tags: ["Python", "OpenAI API", "TypeScript"],
+      title: "Heali",
+      href: "/projects/heali",
+      image: "/projects/heali/hero.png",
+      tags: ["React", "Next.js", "Redux", "TypeScript", "MariaDB", "Redis", "OpenAI", "Auth0"],
+      delay: "100ms",
+      borderClass: "border-t",
+    },
+    {
+      index: "04.",
+      title: "Ainslie + Ainslie",
+      href: "/projects/ainslie-ainslie",
+      image: "/projects/ainslie/hero.png",
+      tags: ["Shopify", "Liquid", "JavaScript", "CSS", "HTML"],
       delay: "200ms",
       borderClass: "border-t border-b",
     },
@@ -157,19 +177,19 @@ export const experienceSection = {
   label: "04 / Experience",
   items: [
     {
-      role: "Senior Engineer",
-      period: "2022 — Present",
-      company: "Kinetic Engineering",
+      role: "Full-Stack Engineer",
+      period: "2025 — Present",
+      company: "DRB Services Kft.",
       description:
-        "Leading core infrastructure development and mentoring full-stack teams on scalable architecture patterns.",
+        "Building scalable business applications and AI-powered solutions, developing robust APIs, and creating seamless user experiences across the full technology stack.",
       active: true,
     },
     {
       role: "Full-Stack Engineer",
-      period: "2019 — 2022",
-      company: "DevScale",
+      period: "2023 — 2025",
+      company: "Pallatrax Hungary Kft.",
       description:
-        "Developed high-performance web applications and automated CI/CD pipelines for enterprise-level clients.",
+        "Developed and maintained e-commerce platforms, CRM systems, and warehouse management applications, focusing on performance, usability, and system reliability.",
       delay: "100ms",
     },
   ] satisfies ExperienceItem[],
@@ -178,12 +198,12 @@ export const experienceSection = {
 export const contactSection = {
   label: "05 / Get in Touch",
   prompt: "Ready to build something exceptional?",
-  email: "hello@orsbiacsi.dev",
+  email: "biacsi.ors@gmail.com",
   socialLinks: [
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/örs-biacsi/" },
+    { label: "GitHub", href: "https://github.com/loarden" },
   ] satisfies SocialLink[],
-  cvHref: "#",
+  cvHref: "/assets/Ors_Biacsi_CV_ENG.pdf",
   attribution: "Designed & built by Örs Biacsi",
-  copyright: "© 2024",
+  copyright: "© 2026",
 };

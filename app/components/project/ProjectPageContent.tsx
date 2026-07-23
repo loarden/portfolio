@@ -3,8 +3,6 @@ import TransitionLink from "../ui/TransitionLink";
 import MaterialIcon from "../ui/MaterialIcon";
 import Reveal from "../ui/Reveal";
 import ProjectGallery from "./ProjectGallery";
-import ProjectNav from "./ProjectNav";
-import ContactSection from "../sections/ContactSection";
 
 type ProjectPageContentProps = {
   project: ProjectDetail;
@@ -28,7 +26,8 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                 {project.title}
               </h1>
             </div>
-            <a
+            {project.liveUrl && (
+              <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -41,6 +40,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                 className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </a>
+            )}
           </div>
         </section>
 
@@ -80,12 +80,12 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
               </div>
             </Reveal>
 
-            <Reveal delay="100ms" className="mb-32">
-              <div className="glass-panel relative overflow-hidden rounded-xl p-12 md:p-16">
-                <div className="absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-[100px]" />
-                <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-12">
-                  <div className="md:col-span-4">
-                    <h2 className="mb-4 font-headline-lg text-headline-lg uppercase leading-tight text-pure-white">
+            <Reveal delay="100ms" className="mb-16 md:mb-32">
+              <div className="glass-panel relative overflow-hidden rounded-xl p-6 sm:p-8 md:p-12 lg:p-16">
+                <div className="absolute top-0 right-0 h-40 w-40 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-[80px] md:h-64 md:w-64 md:blur-[100px]" />
+                <div className="relative z-10 flex flex-col gap-8 md:grid md:grid-cols-12 md:gap-12">
+                  <div className="border-b border-white/10 pb-8 md:col-span-4 md:border-b-0 md:pb-0">
+                    <h2 className="mb-3 font-headline-lg text-[clamp(1.75rem,7vw,3rem)] uppercase leading-tight text-pure-white">
                       {project.role.title}
                     </h2>
                     <p className="font-label-md text-label-md text-primary">
@@ -93,13 +93,16 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
                     </p>
                   </div>
                   <div className="md:col-span-8">
-                    <ul className="space-y-8">
+                    <ul className="space-y-6 md:space-y-8">
                       {project.role.items.map((item) => (
-                        <li key={item.index} className="group flex items-start gap-6">
-                          <span className="mt-2 font-label-sm text-label-sm text-primary">
+                        <li
+                          key={item.index}
+                          className="group grid grid-cols-[2.5rem_1fr] gap-x-3 gap-y-1 sm:flex sm:items-start sm:gap-6"
+                        >
+                          <span className="font-label-sm text-label-sm text-primary sm:mt-2">
                             {item.index}
                           </span>
-                          <p className="font-body-lg text-body-lg text-on-surface transition-colors group-hover:text-primary">
+                          <p className="font-body-md text-body-md leading-relaxed text-on-surface transition-colors group-hover:text-primary md:font-body-lg md:text-body-lg md:leading-normal">
                             {item.text}
                           </p>
                         </li>

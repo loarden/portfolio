@@ -86,6 +86,7 @@ export default function Sidebar({
                 <a
                   key={link.label}
                   href={link.href}
+                  target="_blank"
                   className="font-label-md text-label-md uppercase text-on-surface transition-colors hover:text-primary"
                   tabIndex={isOpen ? 0 : -1}
                 >

@@ -47,6 +47,7 @@ export default function ContactSection({
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
               className="font-label-md uppercase text-on-surface transition-colors hover:text-primary"
             >
               {link.label}
@@ -54,7 +55,9 @@ export default function ContactSection({
           ))}
         </div>
         <a
+          download={cvHref.split("/").pop()}
           href={cvHref}
+          target="_blank"
           className="flex items-center gap-2 rounded-sm bg-primary px-8 py-4 font-label-md uppercase text-on-primary transition-opacity hover:opacity-90"
         >
           <span>Download CV</span>
