@@ -44,7 +44,7 @@ export default function SiteNav() {
 
   return (
     <>
-      <nav className="fixed top-0 z-[60] flex w-full justify-end p-4 sm:p-6 md:p-8">
+      <nav className="fixed top-0 z-[80] flex w-full justify-end p-4 sm:p-6 md:p-8">
         <MenuButton isOpen={isOpen} onClick={toggle} />
       </nav>
 

@@ -2,6 +2,7 @@ export type Project = {
   index: string;
   title: string;
   href: string;
+  image: string;
   tags: string[];
   delay?: string;
   borderClass?: string;
@@ -35,35 +36,20 @@ export type NavSection = {
   href: string;
 };
 
-export type SkillItem = {
-  name: string;
-  icon:
-    | "typescript"
-    | "react"
-    | "nextjs"
-    | "nodejs"
-    | "express"
-    | "php"
-    | "postgresql"
-    | "mongodb"
-    | "docker"
-    | "mcp"
-    | "cursor"
-    | "claude";
-};
-
 export type SkillCategory = {
+  icon: string;
   title: string;
-  skills: SkillItem[];
+  skills: string[];
 };
 
 export const navSections = [
-  { index: "00", label: "Home", href: "#home" },
-  { index: "01", label: "Expertise", href: "#about" },
-  { index: "02", label: "Stack", href: "#skills" },
-  { index: "03", label: "Work", href: "#work" },
-  { index: "04", label: "Experience", href: "#experience" },
-  { index: "05", label: "Contact", href: "#contact" },
+  { index: "00", label: "Home", href: "/#home" },
+  { index: "01", label: "About", href: "/#about-me" },
+  { index: "02", label: "Skills", href: "#skills" },
+  { index: "03", label: "Expertise", href: "/#about" },
+  { index: "04", label: "Work", href: "/#work" },
+  { index: "05", label: "Experience", href: "/#experience" },
+  { index: "06", label: "Contact", href: "/#contact" },
 ] satisfies NavSection[];
 
 export const hero = {
@@ -73,8 +59,13 @@ export const hero = {
     "Building robust, scalable applications across the stack. Focused on performance, precision, and high-impact digital experiences.",
 };
 
+export const aboutSection = {
+  label: "00 / About Me",
+  bio: "I'm a Full-Stack Software Engineer with a passion for building scalable business systems and AI-powered applications. I bridge the gap between complex engineering requirements and intuitive user experiences.",
+};
+
 export const expertiseSection = {
-  label: "01 / Expertise",
+  label: "02 / Expertise",
   headline: "Bridging the gap between complex logic and clean design.",
   items: [
     {
@@ -104,39 +95,28 @@ export const expertiseSection = {
 };
 
 export const skillsSection = {
-  label: "02 / Stack",
+  label: "01 / Skills",
   categories: [
     {
+      icon: "web",
       title: "Frontend",
       skills: [
-        { name: "TypeScript", icon: "typescript" },
-        { name: "React", icon: "react" },
-        { name: "Next.js", icon: "nextjs" },
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
       ],
     },
     {
+      icon: "database",
       title: "Backend",
-      skills: [
-        { name: "Node.js", icon: "nodejs" },
-        { name: "Express.js", icon: "express" },
-        { name: "PHP", icon: "php" },
-      ],
+      skills: ["Node.js", "Python", "PostgreSQL", "GraphQL", "AWS"],
     },
     {
-      title: "Databases",
-      skills: [
-        { name: "PostgreSQL", icon: "postgresql" },
-        { name: "MongoDB", icon: "mongodb" },
-      ],
-    },
-    {
+      icon: "construction",
       title: "Tools",
-      skills: [
-        { name: "Docker", icon: "docker" },
-        { name: "MCP", icon: "mcp" },
-        { name: "Cursor", icon: "cursor" },
-        { name: "Claude Code", icon: "claude" },
-      ],
+      skills: ["Git", "Docker", "CI/CD", "Figma", "JetBrains IDEs"],
     },
   ] satisfies SkillCategory[],
 };
@@ -146,15 +126,17 @@ export const workSection = {
   projects: [
     {
       index: "01.",
-      title: "Warehouse Ops",
-      href: "/projects/warehouse-ops",
-      tags: ["React", "Node.js", "PostgreSQL"],
+      title: "Epikcart",
+      href: "/projects/epikcart",
+      image: "/projects/epikcart/hero.jpg",
+      tags: ["React", "Redux", "Tailwind CSS"],
       borderClass: "border-t",
     },
     {
       index: "02.",
       title: "Enterprise CRM",
       href: "/projects/enterprise-crm",
+      image: "/projects/enterprise-crm.svg",
       tags: ["Next.js", "GraphQL", "AWS"],
       delay: "100ms",
       borderClass: "border-t",
@@ -163,6 +145,7 @@ export const workSection = {
       index: "03.",
       title: "Neural Copilot",
       href: "/projects/neural-copilot",
+      image: "/projects/neural-copilot.svg",
       tags: ["Python", "OpenAI API", "TypeScript"],
       delay: "200ms",
       borderClass: "border-t border-b",

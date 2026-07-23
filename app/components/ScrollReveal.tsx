@@ -1,8 +1,21 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
+function revealIfInView(element: HTMLElement) {
+  const rect = element.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 50) {
+    element.classList.add("active");
+    return true;
+  }
+
+  return false;
+}
+
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(".reveal");
 
@@ -19,11 +32,25 @@ export default function ScrollReveal() {
     );
 
     for (const element of elements) {
-      observer.observe(element);
+      if (element.classList.contains("active")) continue;
+
+      if (!revealIfInView(element)) {
+        observer.observe(element);
+      }
     }
 
-    return () => observer.disconnect();
-  }, []);
+    const retry = window.setTimeout(() => {
+      for (const element of elements) {
+        if (element.classList.contains("active")) continue;
+        revealIfInView(element);
+      }
+    }, 450);
+
+    return () => {
+      window.clearTimeout(retry);
+      observer.disconnect();
+    };
+  }, [pathname]);
 
   return null;
 }

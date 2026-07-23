@@ -11,6 +11,7 @@
   --color-primary-container: #00d261;
   --color-muted-gray: #9ca3af;
   --color-pure-white: #ffffff;
+  --color-deep-charcoal: #1a1a1a;
 
   --font-display-lg: var(--font-anton);
   --font-display-lg-mobile: var(--font-anton);
@@ -131,33 +132,123 @@
     color: var(--color-primary);
   }
 
-  .skill-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    border: 1px solid rgb(255 255 255 / 0.1);
-    background: rgb(255 255 255 / 0.02);
-    padding: 0.625rem 0.875rem;
-    font-family: var(--font-jetbrains-mono);
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: var(--color-on-surface);
-    transition:
-      border-color 0.3s ease,
-      background-color 0.3s ease,
-      color 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  .skill-chip:hover {
-    border-color: var(--color-primary);
-    background: rgb(65 239 122 / 0.06);
-    color: var(--color-pure-white);
-    transform: translateY(-2px);
-  }
-
-  .skill-chip svg {
+  .project-row.is-active .project-title {
     color: var(--color-primary);
+  }
+
+  .project-preview {
+    position: fixed;
+    top: 50%;
+    right: clamp(1.5rem, 5vw, 4rem);
+    z-index: 40;
+    width: min(380px, 32vw);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(-50% + 16px)) scale(0.94);
+    transition:
+      opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-preview[data-visible="true"] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .project-preview-frame {
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 0.25rem;
+    background: rgb(19 19 19 / 0.95);
+    box-shadow:
+      0 24px 80px rgb(0 0 0 / 0.45),
+      0 0 0 1px rgb(65 239 122 / 0.08);
+    animation: project-preview-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @keyframes project-preview-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .project-preview {
+      display: none;
+    }
+  }
+
+  .glass-panel {
+    background: rgb(26 26 26 / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .project-overlap-stage {
+    position: relative;
+  }
+
+  .project-content-layer {
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-gallery-layer {
+    position: relative;
+    z-index: 2;
+    margin-top: -8rem;
+    padding-top: 8rem;
+    isolation: isolate;
+  }
+
+  @media (min-width: 768px) {
+    .project-gallery-layer {
+      margin-top: -12rem;
+      padding-top: 12rem;
+    }
+  }
+
+  .project-gallery-item {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    box-shadow: 0 -32px 80px rgb(0 0 0 / 0.35);
+  }
+
+  .project-gallery-image {
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  .project-gallery-image img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-gallery-item:hover .project-gallery-image img {
+    transform: scale(1.02);
+  }
+
+  .project-nav {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .page-transition,
+  .page-transition--inner {
+    will-change: transform;
   }
 
   .material-symbols-outlined {
@@ -264,29 +355,8 @@
     overflow: hidden;
   }
 
-  .sidebar-panel::before {
-    content: "";
-    position: absolute;
-    inset: 0 auto auto 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgb(65 239 122 / 0.45),
-      transparent
-    );
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-  }
-
   .sidebar-panel[data-open="true"] {
     transform: translateX(0);
-  }
-
-  .sidebar-panel[data-open="true"]::before {
-    transform: scaleX(1);
   }
 
   .sidebar-panel-inner {
@@ -377,11 +447,15 @@
     .menu-line,
     .sidebar-backdrop,
     .sidebar-panel,
-    .sidebar-panel::before,
     .sidebar-label,
     .sidebar-nav-item,
-    .sidebar-footer {
+    .sidebar-footer,
+    .project-preview,
+    .project-preview-frame,
+    .project-gallery-image {
       transition: none;
+      animation: none;
+      transform: none !important;
     }
 
     .sidebar-panel {

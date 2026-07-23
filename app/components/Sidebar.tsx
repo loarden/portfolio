@@ -1,6 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { NavSection, SocialLink } from "../data/portfolio";
+import TransitionLink from "./ui/TransitionLink";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -10,6 +12,11 @@ type SidebarProps = {
   socialLinks: SocialLink[];
 };
 
+function resolveNavHref(href: string, pathname: string) {
+  if (!href.startsWith("#")) return href;
+  return pathname === "/" ? href : `/${href}`;
+}
+
 export default function Sidebar({
   isOpen,
   onClose,
@@ -17,6 +24,7 @@ export default function Sidebar({
   email,
   socialLinks,
 }: SidebarProps) {
+  const pathname = usePathname();
   return (
     <>
       <button
@@ -50,8 +58,8 @@ export default function Sidebar({
                   data-open={isOpen}
                   style={{ transitionDelay: `${120 + index * 70}ms` }}
                 >
-                  <a
-                    href={section.href}
+                  <TransitionLink
+                    href={resolveNavHref(section.href, pathname)}
                     onClick={onClose}
                     className="sidebar-link group"
                     tabIndex={isOpen ? 0 : -1}
@@ -62,7 +70,7 @@ export default function Sidebar({
                     <span className="font-headline-lg text-[clamp(1.75rem,5vw,2.5rem)] uppercase leading-none text-pure-white transition-colors group-hover:text-primary">
                       {section.label}
                     </span>
-                  </a>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>

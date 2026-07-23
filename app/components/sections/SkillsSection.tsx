@@ -1,37 +1,36 @@
 import type { SkillCategory } from "../../data/portfolio";
+import MaterialIcon from "../ui/MaterialIcon";
 import Parallax from "../ui/Parallax";
 import Reveal from "../ui/Reveal";
 import SectionHeading from "../ui/SectionHeading";
-import TechIcon from "../ui/TechIcon";
+import TechTag from "../ui/TechTag";
 
-type SkillCategoryBlockProps = SkillCategory & {
+type SkillCardProps = SkillCategory & {
   delay?: string;
   parallaxSpeed: number;
 };
 
-function SkillCategoryBlock({
+function SkillCard({
+  icon,
   title,
   skills,
   delay,
   parallaxSpeed,
-}: SkillCategoryBlockProps) {
+}: SkillCardProps) {
   return (
     <Parallax speed={parallaxSpeed}>
-      <Reveal delay={delay}>
-        <div className="skill-category">
-          <h3 className="mb-6 font-label-md text-label-md uppercase tracking-[0.2em] text-primary">
-            {title}
-          </h3>
-          <ul className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <li key={skill.name}>
-                <span className="skill-chip">
-                  <TechIcon name={skill.icon} size={20} />
-                  <span>{skill.name}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+      <Reveal
+        delay={delay}
+        className="expertise-card border border-white/10 p-8"
+      >
+        <MaterialIcon name={icon} size={40} className="mb-6 text-primary" />
+        <h4 className="mb-4 font-headline-lg text-[24px] uppercase text-pure-white">
+          {title}
+        </h4>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <TechTag key={skill} label={skill} />
+          ))}
         </div>
       </Reveal>
     </Parallax>
@@ -50,13 +49,13 @@ export default function SkillsSection({
   return (
     <section className="py-32" id="skills">
       <SectionHeading label={label} />
-      <div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         {categories.map((category, index) => (
-          <SkillCategoryBlock
+          <SkillCard
             key={category.title}
             {...category}
             delay={index > 0 ? `${index * 100}ms` : undefined}
-            parallaxSpeed={0.03 + index * 0.02}
+            parallaxSpeed={0.04 + index * 0.02}
           />
         ))}
       </div>

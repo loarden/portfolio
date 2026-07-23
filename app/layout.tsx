@@ -3,6 +3,10 @@ import { Anton, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SnowBackground from "./components/SnowBackground";
 import LenisProvider from "./components/LenisProvider";
+import RouteEffects from "./components/RouteEffects";
+import { contactSection } from "./data/portfolio";
+import ContactSection from "./components/sections/ContactSection";
+import SiteNav from "./components/sections/SiteNav";
 
 const anton = Anton({
   weight: "400",
@@ -42,7 +46,22 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <SnowBackground />
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <RouteEffects />
+          <SiteNav />
+          <main className="mx-auto max-w-[1200px] px-margin-mobile md:px-8">
+            {children}
+            <ContactSection
+              label={contactSection.label}
+              prompt={contactSection.prompt}
+              email={contactSection.email}
+              socialLinks={contactSection.socialLinks}
+              cvHref={contactSection.cvHref}
+              attribution={contactSection.attribution}
+              copyright={contactSection.copyright}
+            />
+          </main>
+        </LenisProvider>
       </body>
     </html>
   );

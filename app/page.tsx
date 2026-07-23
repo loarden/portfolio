@@ -1,3 +1,4 @@
+import AboutSection from "./components/sections/AboutSection";
 import ContactSection from "./components/sections/ContactSection";
 import ExperienceSection from "./components/sections/ExperienceSection";
 import ExpertiseSection from "./components/sections/ExpertiseSection";
@@ -6,6 +7,7 @@ import SiteNav from "./components/sections/SiteNav";
 import SkillsSection from "./components/sections/SkillsSection";
 import WorkSection from "./components/sections/WorkSection";
 import {
+  aboutSection,
   contactSection,
   experienceSection,
   expertiseSection,
@@ -16,16 +18,12 @@ import {
 export default function Home() {
   return (
     <>
-      <SiteNav />
-
-      <main className="mx-auto max-w-[1200px] px-margin-mobile md:px-8">
-        <HeroSection />
-        <ExpertiseSection {...expertiseSection} />
-        <SkillsSection {...skillsSection} />
-        <WorkSection {...workSection} />
-        <ExperienceSection {...experienceSection} />
-        <ContactSection {...contactSection} />
-      </main>
+      <HeroSection />
+      <AboutSection {...aboutSection} />
+      <SkillsSection {...skillsSection} />
+      <ExpertiseSection {...expertiseSection} />
+      <WorkSection {...workSection} />
+      <ExperienceSection {...experienceSection} />
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function MenuButton({ isOpen, onClick }: MenuButtonProps) {
       aria-expanded={isOpen}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       onClick={onClick}
-      className="relative z-[70] flex h-11 w-11 items-center justify-center text-on-surface transition-colors hover:text-primary"
+      className="relative flex h-11 w-11 items-center justify-center text-on-surface transition-colors hover:text-primary"
     >
       <span className="menu-icon" data-open={isOpen}>
         <span className="menu-line menu-line-1" />
