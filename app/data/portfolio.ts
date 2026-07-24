@@ -47,7 +47,7 @@ export const navSections = [
   { index: "01", label: "About", href: "/#about-me" },
   { index: "02", label: "Skills", href: "#skills" },
   { index: "03", label: "Expertise", href: "/#about" },
-  { index: "04", label: "Work", href: "/#work" },
+  { index: "04", label: "Projects", href: "/#projects" },
   { index: "05", label: "Experience", href: "/#experience" },
   { index: "06", label: "Contact", href: "/#contact" },
 ] satisfies NavSection[];
@@ -134,7 +134,7 @@ export const skillsSection = {
 };
 
 export const workSection = {
-  label: "03 / Selected Work",
+  label: "03 / Selected Projects",
   projects: [
     {
       index: "01.",
@@ -148,7 +148,7 @@ export const workSection = {
       index: "02.",
       title: "FRIEZE Portal",
       href: "/projects/frieze",
-      image: "/projects/Frieze/hero.png",
+      image: "/projects/frieze/hero.png",
       tags: ["TypeScript", "Next.js", "Redux", "Node.js", "Express", "MongoDB"],
       borderClass: "border-t",
     },
@@ -157,7 +157,7 @@ export const workSection = {
       title: "Heali",
       href: "/projects/heali",
       image: "/projects/heali/hero.png",
-      tags: ["React", "Next.js", "Redux", "TypeScript", "MariaDB", "Redis", "OpenAI", "Auth0"],
+      tags: ["React", "Next.js", "Redux", "Node.js", "Express", "TypeScript", "MariaDB", "Redis", "OpenAI", "Auth0"],
       delay: "100ms",
       borderClass: "border-t",
     },

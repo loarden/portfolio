@@ -93,6 +93,8 @@ export const projects: Record<string, ProjectDetail> = {
       "React",
       "Next.js",
       "Redux",
+      "Node.js",
+      "Express",
       "TypeScript",
       "MariaDB",
       "Redis",
