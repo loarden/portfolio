@@ -1,6 +1,7 @@
 "use client";
 
 import { useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import MenuButton from "../ui/MenuButton";
@@ -11,10 +12,15 @@ import {
 
 export default function SiteNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const lenis = useLenis();
 
   const close = useCallback(() => setIsOpen(false), []);
   const toggle = useCallback(() => setIsOpen((open) => !open), []);
+
+  useEffect(() => {
+    close();
+  }, [pathname, close]);
 
   useEffect(() => {
     if (isOpen) {

@@ -100,7 +100,7 @@ export default function WorkSection({ label, projects }: WorkSectionProps) {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <section className="relative py-32" id="work">
+    <section className="relative py-32" id="projects">
       <SectionHeading label={label} />
       <ProjectPreview project={activeProject} />
       <div className="space-y-0 lg:max-w-[58%]">

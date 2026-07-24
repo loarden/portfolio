@@ -16,7 +16,7 @@ export default function ProjectPageContent({ project }: ProjectPageContentProps)
           <div className="mb-8 flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
               <TransitionLink
-                href="/#work"
+                href="/#projects"
                 className="mb-6 inline-flex items-center gap-2 font-label-md text-label-md text-primary transition-transform hover:-translate-x-1"
               >
                 <MaterialIcon name="arrow_back" size={20} />

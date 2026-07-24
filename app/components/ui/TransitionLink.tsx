@@ -51,6 +51,7 @@ export default function TransitionLink({
     }
 
     event.preventDefault();
+    onClick?.(event);
 
     gsap.set(".page-transition", { yPercent: 100 });
     gsap.set(".page-transition--inner", { yPercent: 100 });
